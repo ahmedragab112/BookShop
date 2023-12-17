@@ -21,7 +21,7 @@ class BookShope extends StatelessWidget {
         return MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          themeMode: ThemeMode.light,
+          themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
