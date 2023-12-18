@@ -1,4 +1,5 @@
 import 'package:bookly/config/router/routes.dart';
+import 'package:bookly/features/home/presentation/pages/book_details.dart';
 import 'package:bookly/features/home/presentation/pages/home.dart';
 import 'package:bookly/features/splash/presentation/view/splash.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +9,25 @@ class AppRouter {
     switch (settings.name) {
       case AppRoutes.home:
         return PageRouteBuilder(
-            settings: settings,
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                const Home(),
-            transitionDuration: const Duration(milliseconds:300),
-            transitionsBuilder: (_, animation, __, child) => FadeTransition(
-                  opacity: animation,
-                  child: child,
-                ));
+          settings: settings,
+          pageBuilder: (_, animation, __) => const Home(),
+          transitionDuration: const Duration(seconds: 2),
+          transitionsBuilder: (_, animation, __, child) => FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+        );
       case AppRoutes.splash:
         return MaterialPageRoute(
           builder: (context) => const SplashView(),
+        );
+      case AppRoutes.details:
+        return PageRouteBuilder(
+          settings: settings,
+          transitionDuration: const Duration(seconds: 2),
+          transitionsBuilder: (_, animation, __, child) =>
+              FadeTransition(opacity: animation, child: child),
+          pageBuilder: (context, animation, __) => const BookDetails(),
         );
       default:
         return MaterialPageRoute(

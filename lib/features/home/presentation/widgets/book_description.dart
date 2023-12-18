@@ -1,10 +1,11 @@
+
 import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
-class PriceAndRating extends StatelessWidget {
-  const PriceAndRating({
+class BookDescription extends StatelessWidget {
+  const BookDescription({
     super.key,
   });
 
@@ -12,19 +13,11 @@ class PriceAndRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          '19.99 €',
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-          overflow: TextOverflow.clip,
-          maxLines: 1,
-        ),
         const Spacer(),
         const Icon(
           FontAwesomeIcons.solidStar,
           color: goldColor,
-          size: 15,
+          size: 12,
         ),
         const Gap(6),
         Text(
@@ -40,7 +33,8 @@ class PriceAndRating extends StatelessWidget {
               .textTheme
               .bodySmall!
               .copyWith(fontSize: 14, color: Colors.grey),
-        )
+        ),
+        const Spacer()
       ],
     );
   }
