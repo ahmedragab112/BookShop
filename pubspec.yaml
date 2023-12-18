@@ -37,6 +37,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.0
+  font_awesome_flutter: ^10.6.0
   gap: ^3.0.1
   google_fonts: ^6.1.0
   intl: ^0.18.1
