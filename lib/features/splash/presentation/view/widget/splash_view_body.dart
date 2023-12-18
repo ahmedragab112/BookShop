@@ -1,5 +1,5 @@
+import 'package:bookly/config/router/routes.dart';
 import 'package:bookly/core/utils/images/images.dart';
-import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:bookly/features/splash/presentation/view/widget/sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -20,14 +20,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-    animation = Tween<Offset>(begin: const Offset(0, 20), end: Offset.zero)
-        .animate(animationController);
-    animationController.forward();
+    slidingAnimation();
+    navigatToHome();
   }
+
 
   @override
   void dispose() {
@@ -52,5 +48,22 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ],
       ),
     );
+  }
+
+  void slidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    animation = Tween<Offset>(begin: const Offset(0, 5), end: Offset.zero)
+        .animate(animationController);
+    animationController.forward();
+  }
+  
+  Future<Object?> navigatToHome() {
+    return Future.delayed(
+    const Duration(seconds: 4),
+    () => Navigator.pushNamed(context, AppRoutes.home),
+  );
   }
 }
