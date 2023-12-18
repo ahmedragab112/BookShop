@@ -1,5 +1,5 @@
-import 'dart:ui';
-
+import 'package:bookly/core/utils/colors/app_color.dart';
+import 'package:bookly/core/utils/layout/app_size.dart';
 import 'package:flutter/material.dart';
 
 class PlayButton extends StatelessWidget {
@@ -8,40 +8,20 @@ class PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
-      child: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Container(
-            width: 150,
-            height: 224,
-            margin: const EdgeInsets.only(right: 20),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(30)),
-              image: DecorationImage(
-                  image: NetworkImage(
-                    'https://th.bing.com/th/id/OIP.cmTcUqX-2WFqJofdiwQLBQHaHa?rs=1&pid=ImgDetMain',
-                  ),
-                  fit: BoxFit.fill),
-            ),
-          ),
-          Positioned(
-            right: 30,
-            child: Container(
-              width: 40,
-              height: 40,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(shape: BoxShape.circle),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-                child: const Icon(
-                  Icons.play_arrow,
-                  size: 8,
+      width: SizeOfScreen.screenWidth(context) * .35,
+      child: AspectRatio(
+        aspectRatio: 1 / 3,
+        child: Container(
+          decoration: const BoxDecoration(
+            color: backGroundColor,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/Book 1 Hightligh.png',
                 ),
-              ),
-            ),
+                fit: BoxFit.fill),
           ),
-        ],
+        ),
       ),
     );
   }
