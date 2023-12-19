@@ -1,16 +1,16 @@
-import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BestSellerText extends StatelessWidget {
-  const BestSellerText({
+class CustomHeadLineText extends StatelessWidget {
+  const CustomHeadLineText({
     super.key,
+    required this.txt,
   });
-
+  final String txt;
   @override
   Widget build(BuildContext context) {
     return Text(
-      bestSellerText,
+     txt,
       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontFamily: GoogleFonts.montserrat.toString(), fontSize: 20),
     );

@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:bookly/features/home/presentation/widgets/best_seller_iteam_listview.dart';
 import 'package:bookly/features/home/presentation/widgets/best_seller_text.dart';
 import 'package:bookly/features/home/presentation/widgets/book_list_view.dart';
@@ -25,13 +26,13 @@ class HomeViewBody extends StatelessWidget {
                 Gap(30),
                 BookListView(),
                 Gap(30),
-                BestSellerText(),
+                CustomHeadLineText(txt: bestSellerText,),
                 Gap(20),
               ],
             ),
           ),
           SliverFillRemaining(
-            child: BestSellerIteamListView(),
+            child: BookListViewItem(),
           )
         ],
       ),
