@@ -3,6 +3,7 @@ import 'package:bookly/features/home/presentation/widgets/custom_book_price.dart
 import 'package:bookly/features/home/presentation/widgets/details_custom_appbar.dart';
 import 'package:bookly/features/home/presentation/widgets/similar_book_section.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({
@@ -19,11 +20,11 @@ class DetailsViewBody extends StatelessWidget {
             child: Column(
               children: [
                 DetialsCustomAppBar(),
-                SizedBox(height: 30),
+                Gap(30),
                 BookDetailsSection(),
-                SizedBox(height: 35),
+                Gap(35),
                 BookPrice(),
-                SizedBox(height: 50),
+                Gap(50),
                 SimilerBookSection()
               ],
             ),

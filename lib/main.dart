@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const BookShope());
+
 }
 
 class BookShope extends StatelessWidget {
@@ -19,10 +20,10 @@ class BookShope extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           themeMode: ThemeMode.dark,
-          debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           onGenerateRoute: AppRouter.onGenerateRoutes,

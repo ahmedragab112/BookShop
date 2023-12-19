@@ -1,3 +1,4 @@
+import 'package:bookly/config/router/routes.dart';
 import 'package:bookly/core/utils/images/images.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
 import 'package:flutter/material.dart';
@@ -20,11 +21,13 @@ class CustomAppBar extends StatelessWidget {
           fit: BoxFit.fitWidth,
         ),
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.search);
+            },
             icon: const Icon(
               size: 25,
               FontAwesomeIcons.magnifyingGlass,
-            ))
+            ),)
       ],
     );
   }
