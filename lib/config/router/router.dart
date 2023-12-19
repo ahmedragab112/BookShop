@@ -11,7 +11,7 @@ class AppRouter {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, animation, __) => const Home(),
-          transitionDuration: const Duration(seconds: 2),
+          transitionDuration: const Duration(seconds: 1),
           transitionsBuilder: (_, animation, __, child) => FadeTransition(
             opacity: animation,
             child: child,
@@ -24,7 +24,7 @@ class AppRouter {
       case AppRoutes.details:
         return PageRouteBuilder(
           settings: settings,
-          transitionDuration: const Duration(seconds: 2),
+          transitionDuration: const Duration(seconds: 1),
           transitionsBuilder: (_, animation, __, child) =>
               FadeTransition(opacity: animation, child: child),
           pageBuilder: (context, animation, __) => const BookDetails(),

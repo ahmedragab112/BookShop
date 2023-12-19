@@ -15,7 +15,7 @@ class BookListView extends StatelessWidget {
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const PlayButton(),
+        itemBuilder: (context, index) => const CustomBook(),
         itemCount: 20,
         separatorBuilder: (context, index) => const Gap(
           20,

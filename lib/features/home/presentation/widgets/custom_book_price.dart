@@ -11,32 +11,37 @@ class BookPrice extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
+            child: TextButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: whiteColor,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    bottomLeft: Radius.circular(12),
+                  ),
                 ),
               ),
               child: Text(
                 '19.99 €',
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
           ),
           Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                color: orangeColor,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+            child: TextButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: orangeColor,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(12),
+                    topRight: Radius.circular(12),
+                  ),
                 ),
               ),
               child: Text(

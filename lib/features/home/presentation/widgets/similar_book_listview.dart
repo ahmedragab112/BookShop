@@ -9,9 +9,10 @@ class SimilarBookListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
+      
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const SimilarBookItem(),
-        separatorBuilder: (context, index) => const Gap(20),
+        separatorBuilder: (context, index) => const Gap(10),
         itemCount: 100,
       ),
     );

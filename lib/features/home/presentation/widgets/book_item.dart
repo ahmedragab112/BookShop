@@ -2,8 +2,8 @@ import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
 import 'package:flutter/material.dart';
 
-class PlayButton extends StatelessWidget {
-  const PlayButton({super.key});
+class CustomBook extends StatelessWidget {
+  const CustomBook({super.key});
 
   @override
   Widget build(BuildContext context) {
