@@ -1,6 +1,5 @@
 part of 'home_cubit.dart';
 
-abstract class HomeState  {
-}
+abstract class HomeState {}
 
 class HomeInitial extends HomeState {}

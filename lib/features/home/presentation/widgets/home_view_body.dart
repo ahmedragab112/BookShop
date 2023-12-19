@@ -26,7 +26,9 @@ class HomeViewBody extends StatelessWidget {
                 Gap(30),
                 BookListView(),
                 Gap(30),
-                CustomHeadLineText(txt: bestSellerText,),
+                CustomHeadLineText(
+                  txt: bestSellerText,
+                ),
                 Gap(20),
               ],
             ),

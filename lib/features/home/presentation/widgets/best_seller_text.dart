@@ -10,7 +10,7 @@ class CustomHeadLineText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-     txt,
+      txt,
       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontFamily: GoogleFonts.montserrat.toString(), fontSize: 20),
     );

@@ -21,13 +21,14 @@ class CustomAppBar extends StatelessWidget {
           fit: BoxFit.fitWidth,
         ),
         IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.search);
-            },
-            icon: const Icon(
-              size: 25,
-              FontAwesomeIcons.magnifyingGlass,
-            ),)
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.search);
+          },
+          icon: const Icon(
+            size: 25,
+            FontAwesomeIcons.magnifyingGlass,
+          ),
+        )
       ],
     );
   }

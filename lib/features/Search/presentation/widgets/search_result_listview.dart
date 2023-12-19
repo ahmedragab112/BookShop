@@ -7,8 +7,7 @@ class SearchResultListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SliverList.separated(
-    
+    return SliverList.separated(
       itemBuilder: (context, index) => const BestSellerItem(),
       separatorBuilder: (context, index) => const Gap(20),
       itemCount: 100,

@@ -16,8 +16,8 @@ class SizeOfScreen {
   }
 
   static double getWidth(double pixle, BuildContext context) {
-    double screenWidth = SizeOfScreen.screenWidth(context); 
-    double x = screenWidth / pixle; 
-    return screenWidth / x; 
+    double screenWidth = SizeOfScreen.screenWidth(context);
+    double x = screenWidth / pixle;
+    return screenWidth / x;
   }
 }

@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const BookShope());
-
 }
 
 class BookShope extends StatelessWidget {

@@ -24,7 +24,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     navigatToHome();
   }
 
-
   @override
   void dispose() {
     animationController.dispose();
@@ -59,11 +58,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
         .animate(animationController);
     animationController.forward();
   }
-  
+
   Future<Object?> navigatToHome() {
     return Future.delayed(
-    const Duration(seconds: 4),
-    () => Navigator.pushNamed(context, AppRoutes.home),
-  );
+      const Duration(seconds: 4),
+      () => Navigator.pushNamed(context, AppRoutes.home),
+    );
   }
 }
