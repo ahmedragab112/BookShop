@@ -1,13 +1,15 @@
 import 'package:bookly/config/router/routes.dart';
 import 'package:bookly/core/utils/constant/constant.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/widgets/price_and_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
-
+  const BestSellerItem({super.key, required this.model, required this.index});
+  final BookModel model;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -16,8 +18,8 @@ class BestSellerItem extends StatelessWidget {
       },
       child: Row(
         children: [
-          Image.asset(
-            'assets/images/book.png',
+          Image.network(
+            model.items?[index].volumeInfo?.imageLinks?.thumbnail??'https://as2.ftcdn.net/jpg/00/85/97/87/500_F_85978727_1qnXNzbVgChJBTG941vhlHLaGTAWFED6.jpg',
             width: SizeOfScreen.getWidth(70, context),
             height: SizeOfScreen.getHeight(105, context),
             fit: BoxFit.fill,
@@ -28,7 +30,7 @@ class BestSellerItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Harry Potter and the Goblet of Fire  ",
+                 model.items?[index].volumeInfo?.title??'',
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
@@ -38,7 +40,7 @@ class BestSellerItem extends StatelessWidget {
                 ),
                 const Gap(5),
                 Text(
-                  'J.K. Rowling',
+                   model.items?[index].volumeInfo?.authors?[0]??'',
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
@@ -47,7 +49,7 @@ class BestSellerItem extends StatelessWidget {
                   overflow: TextOverflow.clip,
                 ),
                 const Gap(5),
-                const PriceAndRating()
+                 PriceAndRating(price: model.items![index].saleInfo!.saleability!, stareRating: model.items?[index].volumeInfo?.averageRating.toString()??'', ratingCount: model.items![index].volumeInfo!.ratingsCount.toString(),)
               ],
             ),
           )

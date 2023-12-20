@@ -12,11 +12,13 @@ class HomeRepoImplemetation implements HomeRepo {
   HomeRepoImplemetation({required this.apiManager});
   @override
   Future<Either<Failures, BookModel>> getBestSellerBooks(
-      {required String q}) async {
+      ) async {
     try {
       var data =
           await apiManager.get(endPoint: EndPoint.volumes, queryParameters: {
-        'q': q,
+        'q': 'best-sellers',
+        'filter': 'full',
+      'orderBy': 'relevance',
       });
       BookModel model = BookModel.fromJson(data);
       return right(model);
@@ -28,7 +30,16 @@ class HomeRepoImplemetation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failures, BookModel>> getPopularBook() {
-    throw UnimplementedError();
+  Future<Either<Failures, BookModel>> getPopularBook(Map<String ,dynamic> queryParameters) async{
+    try {
+      var data =
+          await apiManager.get(endPoint: EndPoint.volumes, queryParameters:queryParameters);
+      BookModel model = BookModel.fromJson(data);
+      return right(model);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioException(e));
+    } catch (e) {
+      return left(ServerFailure(error: e.toString()));
+    }
   }
 }

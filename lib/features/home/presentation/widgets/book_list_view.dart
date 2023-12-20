@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/layout/app_size.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/widgets/book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -6,8 +7,9 @@ import 'package:gap/gap.dart';
 class BookListView extends StatelessWidget {
   const BookListView({
     super.key,
+    required this.model,
   });
-
+  final BookModel model;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,8 +17,11 @@ class BookListView extends StatelessWidget {
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const CustomBook(),
-        itemCount: 20,
+        itemBuilder: (context, index) => CustomBook(
+          bookImage:
+              model.items?[index].volumeInfo?.imageLinks?.thumbnail ?? '',
+        ),
+        itemCount: model.items!.length,
         separatorBuilder: (context, index) => const Gap(
           20,
         ),

@@ -1,10 +1,15 @@
+import 'package:bloc/bloc.dart';
 import 'package:bookly/config/router/router.dart';
 import 'package:bookly/config/theme/theme.dart';
+import 'package:bookly/core/service_locator/locator.dart';
+import 'package:bookly/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
+  setUpLocator();
   runApp(const BookShope());
 }
 

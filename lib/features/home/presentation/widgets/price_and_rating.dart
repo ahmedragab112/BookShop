@@ -6,14 +6,19 @@ import 'package:gap/gap.dart';
 class PriceAndRating extends StatelessWidget {
   const PriceAndRating({
     super.key,
+    required this.price,
+    required this.stareRating,
+    required this.ratingCount,
   });
-
+  final String price;
+  final String stareRating;
+  final String ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          '19.99 €',
+          '$price €',
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -28,14 +33,14 @@ class PriceAndRating extends StatelessWidget {
         ),
         const Gap(6),
         Text(
-          '4.8',
+          stareRating,
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 fontSize: 16,
               ),
         ),
         const Gap(4),
         Text(
-          '(2390)',
+          '($ratingCount)',
           style: Theme.of(context)
               .textTheme
               .bodySmall!
