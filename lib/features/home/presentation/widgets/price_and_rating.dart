@@ -11,8 +11,8 @@ class PriceAndRating extends StatelessWidget {
     required this.ratingCount,
   });
   final String price;
-  final String stareRating;
-  final String ratingCount;
+  final num stareRating;
+  final num ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,7 +33,7 @@ class PriceAndRating extends StatelessWidget {
         ),
         const Gap(6),
         Text(
-          stareRating,
+          stareRating.toString(),
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 fontSize: 16,
               ),

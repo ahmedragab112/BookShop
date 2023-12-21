@@ -62,7 +62,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Future<Object?> navigatToHome() {
     return Future.delayed(
       const Duration(seconds: 4),
-      () => Navigator.pushNamed(context, AppRoutes.home),
+      () => Navigator.pushReplacementNamed(context, AppRoutes.home),
     );
   }
 }

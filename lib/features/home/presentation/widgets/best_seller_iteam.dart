@@ -1,14 +1,16 @@
 import 'package:bookly/config/router/routes.dart';
 import 'package:bookly/core/utils/constant/constant.dart';
+import 'package:bookly/core/utils/helper/shimmer.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/widgets/price_and_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({super.key, required this.model, required this.index});
-  final BookModel model;
+  final BookModel? model;
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,21 @@ class BestSellerItem extends StatelessWidget {
       },
       child: Row(
         children: [
-          Image.network(
-            model.items?[index].volumeInfo?.imageLinks?.thumbnail??'https://as2.ftcdn.net/jpg/00/85/97/87/500_F_85978727_1qnXNzbVgChJBTG941vhlHLaGTAWFED6.jpg',
-            width: SizeOfScreen.getWidth(70, context),
-            height: SizeOfScreen.getHeight(105, context),
-            fit: BoxFit.fill,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: CachedNetworkImage(
+              placeholder: (context, url) => ShimmerEffect(
+                width: SizeOfScreen.getWidth(70, context),
+                child: Container(
+                  color: Colors.grey.withOpacity(.1),
+                ),
+              ),
+              imageUrl: model?.items?[index].volumeInfo?.imageLinks?.thumbnail ??
+                  'https://as2.ftcdn.net/jpg/00/85/97/87/500_F_85978727_1qnXNzbVgChJBTG941vhlHLaGTAWFED6.jpg',
+              width: SizeOfScreen.getWidth(70, context),
+              height: SizeOfScreen.getHeight(105, context),
+              fit: BoxFit.fill,
+            ),
           ),
           const Gap(30),
           Expanded(
@@ -30,7 +42,7 @@ class BestSellerItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                 model.items?[index].volumeInfo?.title??'',
+                  model!.items![index].volumeInfo!.title!,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
@@ -40,7 +52,7 @@ class BestSellerItem extends StatelessWidget {
                 ),
                 const Gap(5),
                 Text(
-                   model.items?[index].volumeInfo?.authors?[0]??'',
+                  model!.items?[index].volumeInfo?.authors?[0]??'',
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
@@ -49,7 +61,12 @@ class BestSellerItem extends StatelessWidget {
                   overflow: TextOverflow.clip,
                 ),
                 const Gap(5),
-                 PriceAndRating(price: model.items![index].saleInfo!.saleability!, stareRating: model.items?[index].volumeInfo?.averageRating.toString()??'', ratingCount: model.items![index].volumeInfo!.ratingsCount.toString(),)
+                PriceAndRating(
+                  price: model!.items![index].saleInfo!.saleability!,
+                  stareRating: model?.items?[index].volumeInfo?.averageRating??0,
+                  ratingCount:
+                      model?.items?[index].volumeInfo?.ratingsCount ??0,
+                )
               ],
             ),
           )

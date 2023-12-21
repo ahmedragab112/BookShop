@@ -1,4 +1,5 @@
 import 'package:bookly/core/service_locator/locator.dart';
+import 'package:bookly/core/utils/components/book_shimmer.dart';
 import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:bookly/features/home/data/repositories/homerepo_implementation.dart';
 import 'package:bookly/features/home/manager/get_best_seller_books_cubit.dart';
@@ -38,7 +39,7 @@ class HomeViewBody extends StatelessWidget {
                     builder: (context, state) {
                       var bloc = BlocProvider.of<GetPopularBooksCubit>(context);
                       if (state is GetPopularBooksLoading) {
-                        return const Center(child: CircularProgressIndicator());
+                        return const BookLoadingEffect();
                       } else if (state is GetPopularBooksError) {
                         return Center(
                           child: Text(state.errorMassage),
@@ -68,6 +69,24 @@ class HomeViewBody extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class BookLoadingEffect extends StatelessWidget {
+  const BookLoadingEffect({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) => const BookShimmer(),
+          separatorBuilder: (context, index) => const Gap(10),
+          itemCount: 10),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/components/loading_effect.dart';
 import 'package:bookly/features/home/manager/get_best_seller_books_cubit.dart';
 import 'package:bookly/features/home/presentation/widgets/best_seller_iteam.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,10 @@ class BookListViewItem extends StatelessWidget {
     return BlocBuilder<GetBestSellerBooksCubit, GetBestSellerBooksState>(
       builder: (context, state) {
         if (state is GetBestSellerBooksLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return  ListView.separated(
+            separatorBuilder: (context, index) =>const Gap(10),
+            itemBuilder: (context, index) => const LoadingEffect(),
+          itemCount: 20,);
         } else if (state is GetBestSellerBooksError) {
           return Center(
             child: Text(state.errorMassage),
