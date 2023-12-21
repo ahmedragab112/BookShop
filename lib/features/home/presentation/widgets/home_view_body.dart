@@ -1,5 +1,4 @@
 import 'package:bookly/core/service_locator/locator.dart';
-import 'package:bookly/core/utils/components/book_shimmer.dart';
 import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:bookly/features/home/data/repositories/homerepo_implementation.dart';
 import 'package:bookly/features/home/manager/get_best_seller_books_cubit.dart';
@@ -8,6 +7,7 @@ import 'package:bookly/features/home/presentation/widgets/best_seller_iteam_list
 import 'package:bookly/features/home/presentation/widgets/best_seller_text.dart';
 import 'package:bookly/features/home/presentation/widgets/book_list_view.dart';
 import 'package:bookly/features/home/presentation/widgets/custom_appbar.dart';
+import 'package:bookly/features/home/presentation/widgets/loading_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -18,11 +18,10 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30.0,
-        vertical: 48,
-      ),
+      padding:
+          const EdgeInsets.only(left: 30.0, right: 30, bottom: 10, top: 40),
       child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -69,24 +68,6 @@ class HomeViewBody extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class BookLoadingEffect extends StatelessWidget {
-  const BookLoadingEffect({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => const BookShimmer(),
-          separatorBuilder: (context, index) => const Gap(10),
-          itemCount: 10),
     );
   }
 }

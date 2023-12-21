@@ -5,9 +5,10 @@ import 'package:gap/gap.dart';
 
 class BookDescription extends StatelessWidget {
   const BookDescription({
-    super.key,
+    super.key, required this.averageRating, required this.ratingCount,
   });
-
+  final num averageRating;
+  final num ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,14 +21,14 @@ class BookDescription extends StatelessWidget {
         ),
         const Gap(6),
         Text(
-          '4.8',
+          '$averageRating',
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 fontSize: 16,
               ),
         ),
         const Gap(4),
         Text(
-          '(2390)',
+          '($ratingCount)',
           style: Theme.of(context)
               .textTheme
               .bodySmall!

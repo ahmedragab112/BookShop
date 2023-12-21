@@ -3,6 +3,7 @@ import 'package:bookly/core/utils/constant/constant.dart';
 import 'package:bookly/core/utils/helper/shimmer.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/core/model/book_index.dart';
 import 'package:bookly/features/home/presentation/widgets/price_and_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class BestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.details);
+        Navigator.pushNamed(context, AppRoutes.details, arguments: BookIndex(bookModel: model!, index: index));
       },
       child: Row(
         children: [
