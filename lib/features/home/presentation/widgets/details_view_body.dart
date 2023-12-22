@@ -19,7 +19,8 @@ class DetailsViewBody extends StatelessWidget {
       slivers: [
         SliverFillRemaining(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+            padding: const EdgeInsets.only(
+                left: 30.0, right: 30, bottom: 10, top: 40),
             child: Column(
               children: [
                 const DetialsCustomAppBar(),
