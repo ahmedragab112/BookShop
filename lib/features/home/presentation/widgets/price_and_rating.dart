@@ -18,7 +18,7 @@ class PriceAndRating extends StatelessWidget {
     return Row(
       children: [
         Text(
-          '$price €',
+          price == 'NOT_FOR_SALE' ? 'Not for Sale' : '$price €',
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 fontWeight: FontWeight.bold,
               ),

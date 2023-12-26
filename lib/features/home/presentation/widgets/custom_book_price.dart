@@ -2,7 +2,11 @@ import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:flutter/material.dart';
 
 class BookPrice extends StatelessWidget {
-  const BookPrice({super.key});
+  const BookPrice({
+    super.key,
+    required this.price,
+  });
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,7 @@ class BookPrice extends StatelessWidget {
                 ),
               ),
               child: Text(
-                '19.99 €',
+                price == 'NOT_FOR_SALE' ? 'Not for Sale' : '$price €',
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: Colors.black,
                       fontSize: 16,
@@ -45,7 +49,7 @@ class BookPrice extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Free preview',
+                'preview',
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!

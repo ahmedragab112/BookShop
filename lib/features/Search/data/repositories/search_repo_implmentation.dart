@@ -15,7 +15,8 @@ class SearchRepoImplementation implements SearchRepo {
     try {
       var data = await apiManager.get(
           endPoint: EndPoint.volumes,
-          queryParameters: {'q': 'subject:$searchIteam'});
+          queryParameters: {'q': 'subject:$searchIteam',
+           'Filtering':'ebooks',});
       BookModel book = BookModel.fromJson(data);
       return right(book);
     } on DioException catch (e) {

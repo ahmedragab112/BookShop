@@ -45,7 +45,7 @@ class DetailsViewBody extends StatelessWidget {
                       0,
                 ),
                 const Gap(35),
-                const BookPrice(),
+                 BookPrice(price: bookIndex.bookModel.items![bookIndex.index].saleInfo!.saleability!,),
                 const Gap(50),
                 Expanded(
                   child:
@@ -64,7 +64,7 @@ class DetailsViewBody extends StatelessWidget {
                           book: BlocProvider.of<GetSimailerBooksCubit>(context)
                               .bookModel!);
                     }
-                  }),
+                  },),
                 )
               ],
             ),

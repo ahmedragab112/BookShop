@@ -15,10 +15,11 @@ class BookListViewItem extends StatelessWidget {
     return BlocBuilder<GetBestSellerBooksCubit, GetBestSellerBooksState>(
       builder: (context, state) {
         if (state is GetBestSellerBooksLoading) {
-          return  ListView.separated(
-            separatorBuilder: (context, index) =>const Gap(10),
+          return ListView.separated(
+            separatorBuilder: (context, index) => const Gap(10),
             itemBuilder: (context, index) => const LoadingEffect(),
-          itemCount: 20,);
+            itemCount: 20,
+          );
         } else if (state is GetBestSellerBooksError) {
           return Center(
             child: Text(state.errorMassage),
@@ -28,9 +29,8 @@ class BookListViewItem extends StatelessWidget {
           return ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemBuilder: (context, index) => BestSellerItem(
-              model:
-                 bloc.bookModel!,
+            itemBuilder: (context, index) => BookCard(
+              model: bloc.bookModel!,
               index: index,
             ),
             separatorBuilder: (context, index) => const Gap(20),

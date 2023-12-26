@@ -39,7 +39,7 @@ class AppRouter {
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
                BlocProvider(
-                create: (context) => SearchCubit(getIt.get<SearchRepoImplementation>()),
+                create: (context) => SearchCubit(getIt.get<SearchRepoImplementation>())..searchBook(),
                 child: const SearchView(),
               ),
           settings: settings,

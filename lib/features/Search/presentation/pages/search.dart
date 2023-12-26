@@ -10,9 +10,9 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<SearchCubit>(context);
     return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
-        var bloc = BlocProvider.of<SearchCubit>(context);
         return Scaffold(
           appBar: AppBar(
             leading: IconButton(
@@ -22,13 +22,18 @@ class SearchView extends StatelessWidget {
               icon: const Icon(Icons.arrow_back_ios_sharp),
             ),
             title: CustomSearchFiled(
-              onChanged: (value) {},
+              onChanged: (value) {
+                bloc.search(value: value);
+              },
+              controller: bloc.searchController,
             ),
             centerTitle: true,
           ),
-          body: bloc.books == null
+          body: bloc.searchController.text.isEmpty
               ? const NoSearchIteam()
-              : const SearchViewBody(),
+              : SearchViewBody(
+                  book: bloc.books!,
+                ),
         );
       },
     );

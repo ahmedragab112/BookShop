@@ -1,5 +1,5 @@
 const String logoText = 'Read Online And Free Books';
-const String bestSellerText = 'Best Seller';
+const String bestSellerText = 'Newset Books';
 const String alsoLiked = 'You can also like';
 const String searchResult = 'SearchResult';
 const String noSearchResult =

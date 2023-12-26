@@ -13,3 +13,4 @@ class SearchErrorState extends SearchState {
 
   SearchErrorState({required this.errorMassage});
 }
+class ChangeSearch extends SearchState {}

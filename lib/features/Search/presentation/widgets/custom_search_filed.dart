@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchFiled extends StatelessWidget {
-  const CustomSearchFiled({super.key, this.onChanged});
+  const CustomSearchFiled({super.key, this.onChanged, required this.controller});
 final Function(String)? onChanged;
+final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       child: TextField(
+        controller:controller ,
         onChanged:onChanged,
         decoration: InputDecoration(
             suffixIcon: IconButton(
@@ -38,7 +40,7 @@ final Function(String)? onChanged;
                 borderSide: const BorderSide(
                   width: 2,
                   color: whiteColor,
-                ))),
+                ),),),
       ),
     );
   }
