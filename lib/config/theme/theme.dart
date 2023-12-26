@@ -11,6 +11,10 @@ class AppTheme {
       bodyMedium: AppTextStyle.bodyMeduim,
       bodySmall: AppTextStyle.bodySmall,
     ),
+    appBarTheme:const AppBarTheme(
+      elevation: 0.0, 
+      color: backGroundColor
+    )
   );
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
@@ -20,5 +24,9 @@ class AppTheme {
       bodyMedium: AppTextStyle.bodyMeduim,
       bodySmall: AppTextStyle.bodySmall,
     ),
+     appBarTheme:const AppBarTheme(
+      elevation: 0.0, 
+      color: backGroundColor
+    )
   );
 }

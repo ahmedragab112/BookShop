@@ -1,5 +1,4 @@
 import 'package:bookly/core/utils/strings/app_string.dart';
-import 'package:bookly/features/Search/presentation/widgets/custom_search_filed.dart';
 import 'package:bookly/features/Search/presentation/widgets/search_result_listview.dart';
 import 'package:bookly/features/home/presentation/widgets/best_seller_text.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +13,10 @@ class SearchViewBody extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 30.0,
-          vertical: 48,
         ),
         child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
-            SliverToBoxAdapter(child: CustomSearchFiled()),
             SliverToBoxAdapter(child: Gap(16)),
             SliverToBoxAdapter(child: CustomHeadLineText(txt: searchResult)),
             SliverToBoxAdapter(child: Gap(16)),

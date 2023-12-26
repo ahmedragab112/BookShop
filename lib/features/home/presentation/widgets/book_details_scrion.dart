@@ -11,10 +11,13 @@ class BookDetailsSection extends StatelessWidget {
       {super.key,
       required this.img,
       required this.title,
-      required this.description, required this.rating, required this.averageRating});
+      required this.description,
+      required this.rating,
+      required this.averageRating});
   final String img;
   final String title;
   final String description;
+
   final num rating;
   final num averageRating;
   @override
@@ -46,6 +49,7 @@ class BookDetailsSection extends StatelessWidget {
               .bodyLarge!
               .copyWith(fontFamily: kFontGt, fontSize: 30),
           textAlign: TextAlign.center,
+          maxLines: 1,
         ),
         const Gap(5),
         Text(
@@ -58,7 +62,7 @@ class BookDetailsSection extends StatelessWidget {
           maxLines: 2,
         ),
         const Gap(14),
-         BookDescription(
+        BookDescription(
           averageRating: averageRating,
           ratingCount: rating,
         ),

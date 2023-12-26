@@ -49,11 +49,9 @@ class HomeRepoImplemetation implements HomeRepo {
    try {
       var data =
           await apiManager.get(endPoint: EndPoint.volumes, queryParameters: {
-        'q': 'subject:science', 
+        'q': 'subject:$category', 
         'Filtering':'ebooks', 
         'Sorting':'relevance'
-        
-
       });
       BookModel model = BookModel.fromJson(data);
       return right(model);
