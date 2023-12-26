@@ -6,6 +6,7 @@ import 'package:bookly/features/Search/manager/search_cubit.dart';
 import 'package:bookly/features/Search/presentation/pages/search.dart';
 import 'package:bookly/features/home/presentation/pages/book_details.dart';
 import 'package:bookly/features/home/presentation/pages/home.dart';
+import 'package:bookly/features/setting/view/setting_view.dart';
 import 'package:bookly/features/splash/presentation/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,6 +43,17 @@ class AppRouter {
                 create: (context) => SearchCubit(getIt.get<SearchRepoImplementation>())..searchBook(),
                 child: const SearchView(),
               ),
+          settings: settings,
+          transitionDuration: kanimationDuration,
+          transitionsBuilder: (_, animation, __, child) => FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+        );
+         case AppRoutes.setting:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+               const SettingView(),
           settings: settings,
           transitionDuration: kanimationDuration,
           transitionsBuilder: (_, animation, __, child) => FadeTransition(

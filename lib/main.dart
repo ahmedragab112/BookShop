@@ -1,16 +1,25 @@
-import 'package:bloc/bloc.dart';
+import 'package:bookly/config/manager/appsetting_cubit.dart';
 import 'package:bookly/config/router/router.dart';
 import 'package:bookly/config/theme/theme.dart';
 import 'package:bookly/core/service_locator/locator.dart';
 import 'package:bookly/observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  AppsettingCubit bloc = AppsettingCubit();
+  await Future.wait([bloc.cashTheme(), bloc.cashLanguage()]);
   Bloc.observer = MyBlocObserver();
   setUpLocator();
-  runApp(const BookShope());
+  runApp(
+    BlocProvider(
+      create: (context) => bloc,
+      child: const BookShope(),
+    ),
+  );
 }
 
 class BookShope extends StatelessWidget {
@@ -23,14 +32,20 @@ class BookShope extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          themeMode: ThemeMode.dark,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          onGenerateRoute: AppRouter.onGenerateRoutes,
+        return BlocBuilder<AppsettingCubit, AppsettingState>(
+          builder: (context, state) {
+            AppsettingCubit bloc = BlocProvider.of<AppsettingCubit>(context);
+            return MaterialApp(
+              locale: Locale(bloc.languageCode),
+              debugShowCheckedModeBanner: false,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              themeMode: bloc.appTheme,
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              onGenerateRoute: AppRouter.onGenerateRoutes,
+            );
+          },
         );
       },
     );

@@ -14,11 +14,18 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Image.asset(
-          AppImages.logo,
-          width: SizeOfScreen.getWidth(75, context),
-          height: SizeOfScreen.getHeight(16.1, context),
-          fit: BoxFit.fitWidth,
+        InkWell(
+          onTap: () {
+            Scaffold.of(context).openDrawer();
+          },
+          child: SizedBox(
+            child: Image.asset(
+              AppImages.logo,
+              width: SizeOfScreen.getWidth(75, context),
+              height: SizeOfScreen.getHeight(16.1, context),
+              fit: BoxFit.fitWidth,
+            ),
+          ),
         ),
         IconButton(
           onPressed: () {

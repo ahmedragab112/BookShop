@@ -14,7 +14,7 @@ class NoSearchIteam extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Gap(80),
-            Lottie.network(fit: BoxFit.fill, noSearchResult),
+            Lottie.asset(fit: BoxFit.fill, noSearchResult),
             const Gap(20),
             Text(
               searchYourBook,

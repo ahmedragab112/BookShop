@@ -8,7 +8,7 @@ import 'package:dio/dio.dart';
 
 class SearchRepoImplementation implements SearchRepo {
   final ApiManager apiManager;
-  SearchRepoImplementation({required this.apiManager});
+ const SearchRepoImplementation({required this.apiManager});
   @override
   Future<Either<Failures, BookModel>> searchBook(
       {required String searchIteam}) async {
