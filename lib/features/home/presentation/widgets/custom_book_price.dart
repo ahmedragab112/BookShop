@@ -1,12 +1,15 @@
 import 'package:bookly/core/utils/colors/app_color.dart';
+import 'package:bookly/core/utils/helper/function/lanucher.dart';
 import 'package:flutter/material.dart';
 
 class BookPrice extends StatelessWidget {
   const BookPrice({
     super.key,
     required this.price,
+    required this.url,
   });
   final String price;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,9 @@ class BookPrice extends StatelessWidget {
           ),
           Expanded(
             child: TextButton(
-              onPressed: () {},
+              onPressed: () async {
+               await launchCustomUr(context,url);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: orangeColor,
                 shape: const RoundedRectangleBorder(

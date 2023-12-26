@@ -45,7 +45,8 @@ class DetailsViewBody extends StatelessWidget {
                       0,
                 ),
                 const Gap(35),
-                 BookPrice(price: bookIndex.bookModel.items![bookIndex.index].saleInfo!.saleability!,),
+                 BookPrice(price: bookIndex.bookModel.items![bookIndex.index].saleInfo!.saleability!, url:bookIndex.bookModel.items![bookIndex.index]
+                          .volumeInfo!.previewLink??'' , ),
                 const Gap(50),
                 Expanded(
                   child:
