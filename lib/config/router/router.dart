@@ -4,6 +4,9 @@ import 'package:bookly/core/utils/constant/constant.dart';
 import 'package:bookly/features/Search/data/repositories/search_repo_implmentation.dart';
 import 'package:bookly/features/Search/manager/search_cubit.dart';
 import 'package:bookly/features/Search/presentation/pages/search.dart';
+import 'package:bookly/features/auth/manager/auth_cubit.dart';
+import 'package:bookly/features/auth/presentation/pages/login_screen.dart';
+import 'package:bookly/features/auth/presentation/pages/signup_screen.dart';
 import 'package:bookly/features/home/presentation/pages/book_details.dart';
 import 'package:bookly/features/home/presentation/pages/home.dart';
 import 'package:bookly/features/setting/view/setting_view.dart';
@@ -38,11 +41,12 @@ class AppRouter {
         );
       case AppRoutes.search:
         return PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-               BlocProvider(
-                create: (context) => SearchCubit(getIt.get<SearchRepoImplementation>())..searchBook(),
-                child: const SearchView(),
-              ),
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) =>
+                SearchCubit(getIt.get<SearchRepoImplementation>())
+                  ..searchBook(),
+            child: const SearchView(),
+          ),
           settings: settings,
           transitionDuration: kanimationDuration,
           transitionsBuilder: (_, animation, __, child) => FadeTransition(
@@ -50,10 +54,37 @@ class AppRouter {
             child: child,
           ),
         );
-         case AppRoutes.setting:
+      case AppRoutes.setting:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
-               const SettingView(),
+              const SettingView(),
+          settings: settings,
+          transitionDuration: kanimationDuration,
+          transitionsBuilder: (_, animation, __, child) => FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+        );
+      case AppRoutes.loginPage:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+               BlocProvider(
+            create: (context) => AuthBloc(),
+            child: const Login(),
+          ),
+          settings: settings,
+          transitionDuration: kanimationDuration,
+          transitionsBuilder: (_, animation, __, child) => FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+        );
+      case AppRoutes.regsisterPage:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => AuthBloc(),
+            child: const Register(),
+          ),
           settings: settings,
           transitionDuration: kanimationDuration,
           transitionsBuilder: (_, animation, __, child) => FadeTransition(

@@ -1,6 +1,5 @@
-import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SlidingText extends StatelessWidget {
   const SlidingText({
     super.key,
@@ -17,7 +16,7 @@ class SlidingText extends StatelessWidget {
         return SlideTransition(
           position: animation,
           child: Text(
-            logoText,
+          AppLocalizations.of(context)!.logoText,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall,
           ),

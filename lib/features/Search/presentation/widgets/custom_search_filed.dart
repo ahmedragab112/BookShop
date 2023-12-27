@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class CustomSearchFiled extends StatelessWidget {
   const CustomSearchFiled({super.key, this.onChanged, required this.controller});
 final Function(String)? onChanged;
@@ -22,7 +22,7 @@ final TextEditingController controller;
               ),
               onPressed: () {},
             ),
-            hintText: 'search',
+            hintText:AppLocalizations.of(context)!.searchYourBook ,
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide: const BorderSide(

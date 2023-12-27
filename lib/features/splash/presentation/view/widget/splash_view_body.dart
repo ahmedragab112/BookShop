@@ -1,6 +1,7 @@
 import 'package:bookly/config/router/routes.dart';
 import 'package:bookly/core/utils/images/images.dart';
 import 'package:bookly/features/splash/presentation/view/widget/sliding_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -17,11 +18,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> animation;
+    
   @override
   void initState() {
     super.initState();
     slidingAnimation();
-    navigatToHome();
+    navigatToNextPage();
   }
 
   @override
@@ -59,10 +61,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController.forward();
   }
 
-  Future<Object?> navigatToHome() {
+  Future<Object?> navigatToNextPage() {
     return Future.delayed(
       const Duration(seconds: 4),
-      () => Navigator.pushReplacementNamed(context, AppRoutes.home),
+      () => Navigator.pushReplacementNamed(context,FirebaseAuth.instance.currentUser==null? AppRoutes.loginPage: AppRoutes.home),
     );
   }
 }

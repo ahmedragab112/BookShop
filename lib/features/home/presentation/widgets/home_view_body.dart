@@ -1,5 +1,4 @@
 import 'package:bookly/core/service_locator/locator.dart';
-import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:bookly/features/home/data/repositories/homerepo_implementation.dart';
 import 'package:bookly/features/home/manager/get_best_seller_books_cubit.dart';
 import 'package:bookly/features/home/manager/get_popular_books_cubit.dart';
@@ -11,7 +10,7 @@ import 'package:bookly/features/home/presentation/widgets/loading_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
@@ -52,8 +51,8 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 ),
                 const Gap(30),
-                const CustomHeadLineText(
-                  txt: bestSellerText,
+                 CustomHeadLineText(
+                  txt: AppLocalizations.of(context)!.newsetBooks,
                 ),
                 const Gap(20),
               ],

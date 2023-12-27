@@ -5,6 +5,7 @@ import 'package:bookly/features/setting/widget/themeing_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingBody extends StatelessWidget {
   const SettingBody({super.key});
@@ -24,12 +25,12 @@ class SettingBody extends StatelessWidget {
               icon: const Icon(Icons.arrow_back_ios_new)),
           const Gap(20),
           Text(
-            bloc.languageCode == 'en' ? 'Language' : 'عربي',
+            bloc.languageCode == 'en' ? 'Language' : 'اللغه',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const Gap(10),
           CustomSettingBottomSheet(
-            text: bloc.languageCode == 'en' ? 'English' : 'Arabic',
+            text: bloc.languageCode == 'en' ? 'English' : 'انجليزي',
             onTap: () {
               showModalBottomSheet(
                 context: context,
@@ -39,12 +40,14 @@ class SettingBody extends StatelessWidget {
           ),
           const Gap(20),
           Text(
-            'Themeing',
+            AppLocalizations.of(context)!.themeing,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const Gap(10),
           CustomSettingBottomSheet(
-            text: bloc.appTheme == ThemeMode.dark ? 'Dark' : 'Light',
+            text: bloc.appTheme == ThemeMode.dark
+                ? AppLocalizations.of(context)!.dark
+                : AppLocalizations.of(context)!.light,
             onTap: () {
               showModalBottomSheet(
                 context: context,

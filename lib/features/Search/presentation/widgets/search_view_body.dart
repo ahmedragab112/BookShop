@@ -1,12 +1,11 @@
 import 'package:bookly/core/utils/components/loading_effect.dart';
-import 'package:bookly/core/utils/strings/app_string.dart';
 import 'package:bookly/features/Search/manager/search_cubit.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/widgets/best_seller_iteam.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key, required this.book});
   final BookModel book;
@@ -36,7 +35,7 @@ class SearchViewBody extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: Text(
-                    '$searchResult ${book.totalItems}',
+                    '${AppLocalizations.of(context)!.searchResult} ${book.totalItems}',
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge!

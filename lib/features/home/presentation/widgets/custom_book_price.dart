@@ -1,6 +1,8 @@
+import 'package:bookly/config/manager/appsetting_cubit.dart';
 import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/core/utils/helper/function/lanucher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookPrice extends StatelessWidget {
   const BookPrice({
@@ -13,6 +15,7 @@ class BookPrice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<AppsettingCubit>(context);
     return SizedBox(
       height: 50,
       child: Row(
@@ -22,11 +25,16 @@ class BookPrice extends StatelessWidget {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: whiteColor,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    bottomLeft: Radius.circular(12),
-                  ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: bloc.languageCode == 'en'
+                      ? const BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          bottomLeft: Radius.circular(12),
+                        )
+                      : const BorderRadius.only(
+                          topRight: Radius.circular(12),
+                          bottomRight: Radius.circular(12),
+                        ),
                 ),
               ),
               child: Text(
@@ -42,15 +50,20 @@ class BookPrice extends StatelessWidget {
           Expanded(
             child: TextButton(
               onPressed: () async {
-               await launchCustomUr(context,url);
+                await launchCustomUr(context, url);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: orangeColor,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(12),
-                    topRight: Radius.circular(12),
-                  ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: bloc.languageCode == 'en'
+                      ? const BorderRadius.only(
+                          bottomRight: Radius.circular(12),
+                          topRight: Radius.circular(12),
+                        )
+                      : const BorderRadius.only(
+                          bottomLeft: Radius.circular(12),
+                          topLeft: Radius.circular(12),
+                        ),
                 ),
               ),
               child: Text(
