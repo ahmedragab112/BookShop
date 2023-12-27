@@ -13,7 +13,7 @@ class LanguageBottomSheet extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.onError,
+            color: Theme.of(context).colorScheme.primary,
             border: Border.all(
               color: Theme.of(context).colorScheme.secondary,
               width: 2,

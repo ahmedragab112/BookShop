@@ -16,13 +16,8 @@ class SettingBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back_ios_new)),
           const Gap(20),
           Text(
             bloc.languageCode == 'en' ? 'Language' : 'اللغه',
@@ -30,7 +25,7 @@ class SettingBody extends StatelessWidget {
           ),
           const Gap(10),
           CustomSettingBottomSheet(
-            text: bloc.languageCode == 'en' ? 'English' : 'انجليزي',
+            text: bloc.languageCode == 'en' ? 'English' : 'العربيه',
             onTap: () {
               showModalBottomSheet(
                 context: context,

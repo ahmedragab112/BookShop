@@ -5,24 +5,58 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
       brightness: Brightness.light,
-      scaffoldBackgroundColor: backGroundColor,
+      scaffoldBackgroundColor: whiteBackGroundColor,
       textTheme: TextTheme(
-        bodyLarge: AppTextStyle.bodyLarge,
-        bodyMedium: AppTextStyle.bodyMeduim,
-        bodySmall: AppTextStyle.bodySmall,
+        bodyLarge: AppTextStyle.lightTextbodyLarge,
+        bodyMedium: AppTextStyle.lightTextbodyMeduim,
+        bodySmall: AppTextStyle.lightTextbodySmall,
       ),
-      appBarTheme: const AppBarTheme(elevation: 0.0, color: backGroundColor));
+      colorScheme: const ColorScheme(
+          brightness: Brightness.light,
+          primary: whiteBackGroundColor,
+          onPrimary: whiteColor,
+          secondary: goldColor,
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.green,
+          background: Colors.white,
+          onBackground: Colors.yellow,
+          surface: Colors.orange,
+          onSurface:whiteColor),
+      appBarTheme:
+          const AppBarTheme(elevation: 0.0, color: whiteBackGroundColor),
+      iconTheme: const IconThemeData(color:darkGray),
+      bottomSheetTheme:
+          const BottomSheetThemeData(backgroundColor: whiteBackGroundColor));
   static ThemeData darkTheme = ThemeData(
+      colorScheme: const ColorScheme(
+          brightness: Brightness.dark,
+          primary: darkBackGroundColor,
+          onPrimary: whiteColor,
+          secondary: goldColor,
+          onSecondary: whiteColor,
+          error: Colors.red,
+          onError: Colors.red,
+          background: Colors.black,
+          onBackground: Colors.redAccent,
+          surface: Colors.transparent,
+          onSurface: darkBackGroundColor),
       brightness: Brightness.dark,
       drawerTheme: const DrawerThemeData(
-        backgroundColor: backGroundColor,
+        backgroundColor: darkBackGroundColor,
         elevation: 0.0,
       ),
-      scaffoldBackgroundColor: backGroundColor,
+      scaffoldBackgroundColor: darkBackGroundColor,
+    
       textTheme: TextTheme(
-        bodyLarge: AppTextStyle.bodyLarge,
-        bodyMedium: AppTextStyle.bodyMeduim,
-        bodySmall: AppTextStyle.bodySmall,
+
+        bodyLarge: AppTextStyle.darkTextbodyLarge,
+        bodyMedium: AppTextStyle.darkTextbodyMeduim,
+        bodySmall: AppTextStyle.darkTextbodySmall,
       ),
-      appBarTheme: const AppBarTheme(elevation: 0.0, color: backGroundColor));
+      appBarTheme:
+          const AppBarTheme(elevation: 0.0, color: darkBackGroundColor),
+      iconTheme: const IconThemeData(color: lightGray),
+      bottomSheetTheme:
+          const BottomSheetThemeData(backgroundColor: darkBackGroundColor));
 }

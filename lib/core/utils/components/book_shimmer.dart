@@ -9,15 +9,14 @@ class BookShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor:  Colors.white,
-      highlightColor: backGroundColor,
+      baseColor: Colors.white,
+      highlightColor: darkBackGroundColor,
       child: Container(
-        width: SizeOfScreen.getWidth(120, context), 
+        width: SizeOfScreen.getWidth(120, context),
         height: SizeOfScreen.getHeight(120, context),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16), 
-          color: Colors.grey.withOpacity(.1)
-        ),
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.grey.withOpacity(.1)),
       ),
     );
   }

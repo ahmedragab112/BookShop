@@ -4,7 +4,9 @@ import 'package:shimmer/shimmer.dart';
 
 class ShimmerEffect extends StatelessWidget {
   const ShimmerEffect({
-    super.key, required this.width, required this.child,
+    super.key,
+    required this.width,
+    required this.child,
   });
   final double width;
   final Widget child;
@@ -13,10 +15,9 @@ class ShimmerEffect extends StatelessWidget {
     return SizedBox(
       width: width,
       child: Shimmer.fromColors(
-        baseColor: Colors.white,
-        highlightColor: backGroundColor,
-        child: child
-      ),
+          baseColor: Colors.white,
+          highlightColor: darkBackGroundColor,
+          child: child),
     );
   }
 }

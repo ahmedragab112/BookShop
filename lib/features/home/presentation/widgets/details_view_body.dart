@@ -1,4 +1,5 @@
 import 'package:bookly/core/model/book_index.dart';
+import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/features/home/manager/get_simailer_books_cubit.dart';
 import 'package:bookly/features/home/presentation/widgets/book_details_scrion.dart';
 import 'package:bookly/features/home/presentation/widgets/custom_book_price.dart';
@@ -45,27 +46,36 @@ class DetailsViewBody extends StatelessWidget {
                       0,
                 ),
                 const Gap(35),
-                 BookPrice(price: bookIndex.bookModel.items![bookIndex.index].saleInfo!.saleability!, url:bookIndex.bookModel.items![bookIndex.index]
-                          .volumeInfo!.previewLink??'' , ),
+                BookPrice(
+                  price: bookIndex
+                      .bookModel.items![bookIndex.index].saleInfo!.saleability!,
+                  url: bookIndex.bookModel.items![bookIndex.index].volumeInfo!
+                          .previewLink ??
+                      '',
+                ),
                 const Gap(50),
                 Expanded(
                   child:
                       BlocBuilder<GetSimailerBooksCubit, GetSimailerBooksState>(
-                          builder: (context, state) {
-                    if (state is GetSimailerBooksLoading) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (state is GetSimailerBooksError) {
-                      return Center(
-                        child: Text(state.errorMassage),
-                      );
-                    } else {
-                      return SimilerBookSection(
-                          book: BlocProvider.of<GetSimailerBooksCubit>(context)
-                              .bookModel!);
-                    }
-                  },),
+                    builder: (context, state) {
+                      if (state is GetSimailerBooksLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            color: goldColor,
+                          ),
+                        );
+                      } else if (state is GetSimailerBooksError) {
+                        return Center(
+                          child: Text(state.errorMassage),
+                        );
+                      } else {
+                        return SimilerBookSection(
+                            book:
+                                BlocProvider.of<GetSimailerBooksCubit>(context)
+                                    .bookModel!);
+                      }
+                    },
+                  ),
                 )
               ],
             ),

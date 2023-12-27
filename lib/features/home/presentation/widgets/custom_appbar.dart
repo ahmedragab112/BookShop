@@ -1,4 +1,5 @@
 import 'package:bookly/config/router/routes.dart';
+import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/core/utils/images/images.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class CustomAppBar extends StatelessWidget {
           },
           icon: const Icon(
             size: 25,
+            color: whiteColor,
             FontAwesomeIcons.magnifyingGlass,
           ),
         )

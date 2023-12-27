@@ -2,6 +2,7 @@ import 'package:bookly/config/manager/appsetting_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class ThemeingBottomSheet extends StatelessWidget {
   const ThemeingBottomSheet({Key? key}) : super(key: key);
 
@@ -11,7 +12,7 @@ class ThemeingBottomSheet extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.onSecondary,
+        color: Theme.of(context).colorScheme.primary,
         border: Border.all(
           color: Theme.of(context).colorScheme.secondary,
           width: 2,
@@ -29,7 +30,8 @@ class ThemeingBottomSheet extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(AppLocalizations.of(context)!.light, style: Theme.of(context).textTheme.bodyMedium!),
+                Text(AppLocalizations.of(context)!.light,
+                    style: Theme.of(context).textTheme.bodyMedium!),
                 bloc.appTheme == ThemeMode.light
                     ? const Icon(
                         Icons.check,
@@ -46,7 +48,8 @@ class ThemeingBottomSheet extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(AppLocalizations.of(context)!.dark, style: Theme.of(context).textTheme.bodyMedium!),
+                Text(AppLocalizations.of(context)!.dark,
+                    style: Theme.of(context).textTheme.bodyMedium!),
                 bloc.appTheme == ThemeMode.dark
                     ? const Icon(
                         Icons.check,

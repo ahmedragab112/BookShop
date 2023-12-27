@@ -42,6 +42,7 @@
     "signUp": "SignUp",
                            
     "alreadyHaveAnAccount": "Already Have An Account ?",
-    "newsetBooks":"Newset Books"
+    "newsetBooks":"Newset Books",
+    "alsoLiked":"You can also like"
           
 }

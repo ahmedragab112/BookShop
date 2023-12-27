@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/features/Search/manager/search_cubit.dart';
 import 'package:bookly/features/Search/presentation/widgets/custom_search_filed.dart';
 import 'package:bookly/features/Search/presentation/widgets/empty_search.dart';
@@ -19,7 +20,10 @@ class SearchView extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back_ios_sharp),
+              icon: const Icon(
+                Icons.arrow_back_ios_sharp,
+                color: whiteColor,
+              ),
             ),
             title: CustomSearchFiled(
               onChanged: (value) {

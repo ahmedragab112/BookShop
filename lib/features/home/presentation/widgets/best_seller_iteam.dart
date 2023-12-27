@@ -1,4 +1,5 @@
 import 'package:bookly/config/router/routes.dart';
+import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/core/utils/constant/constant.dart';
 import 'package:bookly/core/utils/helper/shimmer.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
@@ -59,7 +60,7 @@ class BookCard extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
-                      .copyWith(color: Colors.grey),
+                      .copyWith(color: whiteColor),
                   maxLines: 1,
                   overflow: TextOverflow.clip,
                 ),

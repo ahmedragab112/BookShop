@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/colors/app_color.dart';
 import 'package:bookly/core/utils/constant/constant.dart';
 import 'package:bookly/core/utils/helper/shimmer.dart';
 import 'package:bookly/core/utils/layout/app_size.dart';
@@ -57,7 +58,7 @@ class BookDetailsSection extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodySmall!
-              .copyWith(color: Colors.white.withOpacity(.7)),
+              .copyWith(color: whiteColor),
           textAlign: TextAlign.center,
           maxLines: 2,
         ),

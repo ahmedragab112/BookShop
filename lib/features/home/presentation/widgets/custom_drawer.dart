@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     super.key,
@@ -15,6 +16,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -44,8 +46,7 @@ class CustomDrawer extends StatelessWidget {
             const Gap(10),
             DrawerIteam(
               icon: FontAwesomeIcons.magnifyingGlass,
-              title: 
-            AppLocalizations.of(context)!.searchYourBook,
+              title: AppLocalizations.of(context)!.searchYourBook,
               onTap: () {
                 Scaffold.of(context).closeDrawer();
                 Navigator.pushNamed(context, AppRoutes.search);
@@ -54,7 +55,7 @@ class CustomDrawer extends StatelessWidget {
             const Gap(10),
             DrawerIteam(
               icon: Icons.settings,
-              title:AppLocalizations.of(context)!.setting,
+              title: AppLocalizations.of(context)!.setting,
               onTap: () {
                 Scaffold.of(context).closeDrawer();
                 Navigator.pushNamed(context, AppRoutes.setting);
@@ -65,7 +66,9 @@ class CustomDrawer extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                FirebaseAuth.instance.signOut().then((value) => Navigator.pushReplacementNamed(context, AppRoutes.loginPage));
+                FirebaseAuth.instance.signOut().then((value) =>
+                    Navigator.pushReplacementNamed(
+                        context, AppRoutes.loginPage));
               },
               child: Center(
                 child: Container(
@@ -82,7 +85,10 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   child: Text(
                     AppLocalizations.of(context)!.logOut,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall!
+                        .copyWith(color: whiteColor),
                   ),
                 ),
               ),
