@@ -41,7 +41,7 @@ class Login extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Gap(20),
+                      const Gap(100),
                       Center(
                         child: Image.asset(
                           'assets/images/Logo.png',
@@ -87,7 +87,7 @@ class Login extends StatelessWidget {
                           bloc.add(ValidateLogin());
                         },
                       ),
-                      const Gap(20),
+                      const Gap(10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

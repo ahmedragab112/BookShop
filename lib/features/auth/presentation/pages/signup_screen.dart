@@ -61,7 +61,7 @@ class Register extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyLarge,
                         textAlign: TextAlign.center,
                       ),
-                      const Gap(50),
+                      const Gap(20),
                        Text(
                      AppLocalizations.of(context)!.signUp,
                         
