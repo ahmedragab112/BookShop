@@ -30,7 +30,6 @@ environment:
 dependencies:
   bloc: ^8.1.2
   cached_network_image: ^3.3.0
-  connectivity_plus: ^5.0.2
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^5.4.0
@@ -43,7 +42,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.0
-  flutter_zoom_drawer: ^3.1.1
   font_awesome_flutter: ^10.6.0
   gap: ^3.0.1
   get_it: ^7.6.4
